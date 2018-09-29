@@ -17,6 +17,4 @@ app.get('/users/:idOrUsername', (req, res) => {
         .then(response => res.send(response));
 });
 
-app.listen(port, function () {
-    console.log(`Example app listening on port ${port}!`);
-});
+app.listen(port, () => console.log(`Example app listening on port ${port}!`));
