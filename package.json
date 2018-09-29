@@ -1,0 +1,14 @@
+{
+  "name": "proxy-codewars",
+  "version": "1.0.0",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js"
+  },
+  "author": "arkadiusz-cholewa",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.4",
+    "express": "^4.16.3"
+  }
+}
