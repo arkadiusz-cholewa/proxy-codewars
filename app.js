@@ -2,7 +2,6 @@ const express = require('express');
 const fetch = require("node-fetch");
 const cors = require('cors');
 const port = process.env.PORT || 3000;
-const app = express();
 const accessKey = 'pbJpHBZeaChyHyydssok';
 
 const app = express();
