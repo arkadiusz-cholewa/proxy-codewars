@@ -1,10 +1,11 @@
-const express = require('express');
-const fetch = require("node-fetch");
-const cors = require('cors');
+var express = require('express');
+var fetch = require("node-fetch");
+var cors = require('cors');
 var port = process.env.PORT || 3000;
-const accessKey = 'pbJpHBZeaChyHyydssok';
+var app = express();
+var accessKey = 'pbJpHBZeaChyHyydssok';
 
-const app = express();
+var app = express();
 app.use(cors());
 
 app.get('/', (req, res) => res.status(200).send({
@@ -17,4 +18,6 @@ app.get('/users/:idOrUsername', (req, res) => {
         .then(response => res.send(response));
 });
 
-app.listen(process.env.PORT || 3000, () => console.log(`Listening on port ${port}`));
+app.listen(port, function () {
+    console.log(`Example app listening on port !`);
+});
