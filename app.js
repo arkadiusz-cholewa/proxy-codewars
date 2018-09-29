@@ -9,7 +9,7 @@ app.use(cors());
 
 app.get('/', (req, res) => res.status(200).send({
     message: 'Welcome to the proxy-codewars API!'
-  }));
+}));
 
 app.get('/users/:idOrUsername', (req, res) => {
     fetch(`https://www.codewars.com/api/v1/users/${req.params.idOrUsername}?access_key=${accessKey}`)
@@ -17,4 +17,4 @@ app.get('/users/:idOrUsername', (req, res) => {
         .then(response => res.send(response));
 });
 
-app.listen(port, () => console.log(`Listening on port ${port}`));
+app.listen(process.env.PORT || 3000, () => console.log(`Listening on port ${port}`));
