@@ -23,6 +23,12 @@ export default class TopMenu extends React.Component {
     });
   }
   render() {
+    const navItems = this.props.languages.map((lang,i) => (<NavItem key={i}>
+      <NavLink  onClick={()=> this.props.onChange(lang)}>
+        {lang}
+      </NavLink>
+    </NavItem>));
+
     return (
       <div>
         <Navbar color="dark" dark expand="md">
@@ -30,6 +36,7 @@ export default class TopMenu extends React.Component {
           <NavbarToggler onClick={this.toggle} />
           <Collapse isOpen={this.state.isOpen} navbar>
             <Nav className="ml-auto" navbar>
+              {navItems}
               <NavItem>
                 <NavLink href="https://github.com/arkadiusz-cholewa/proxy-codewars">
                   GitHub

@@ -7,12 +7,11 @@ export default class DataTable extends React.Component {
     this.state = {};
   }
   render() {
-    console.log(this.props.data);
     const rows = this.props.data.map((dataItem, i) => (
       <DataTableRow key={i} i={i + 1} dataItem={dataItem} />
     ));
     return (
-      <Table responsive dark>
+      <Table size="sm" responsive dark>
         <thead>
           <tr>
             <th>#</th>
