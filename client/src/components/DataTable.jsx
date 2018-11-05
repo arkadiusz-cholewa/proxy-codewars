@@ -12,7 +12,7 @@ export default class DataTable extends React.Component {
       <DataTableRow key={i} i={i + 1} dataItem={dataItem} />
     ));
     return (
-      <Table dark>
+      <Table responsive dark>
         <thead>
           <tr>
             <th>#</th>
