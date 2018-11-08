@@ -5,17 +5,29 @@ import _ from "lodash";
 import { Container, Row, Col } from "reactstrap";
 import "./App.css";
 
-const nicks = ["arkadiusz-cholewa", "Xanner", "Arathon"];
+const nicks = [
+  "arkadiusz-cholewa",
+  "Xanner",
+  "Arathon",
+  "SafQ",
+  "errantShaggy",
+  "Kkuba55",
+  "Chszaner",
+  "Villiamos",
+  "Wojtus",
+  "zvvvz",
+  "alberto12",
+  "rozbujnik1"
+];
 
 export default class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       data: [],
-      languages: 'Overall',
-      selectedLanguage: 'Overall',
-      hasData: false,
-
+      languages: "Overall",
+      selectedLanguage: "Overall",
+      hasData: false
     };
   }
 
@@ -24,8 +36,10 @@ export default class App extends Component {
 
     return (
       <div className="App">
-
-        <TopMenu languages={this.state.languages} onChange={(e) => this.handleLanguageChanged(e)} />
+        <TopMenu
+          languages={this.state.languages}
+          onChange={e => this.handleLanguageChanged(e)}
+        />
         <Container>
           <Row className="mt-3">
             <Col>
@@ -33,10 +47,29 @@ export default class App extends Component {
               <Row>
                 <Col sm="12">
                   <DataTable
-                    data={this.state.selectedLanguage === 'Overall'
-                      ? this.state.data :
-                      this.state.data.filter(d => d['ranks']['languages'].hasOwnProperty(this.state.selectedLanguage)).map(m => { return { ...m, ranks: { overall: { ...m.ranks.languages[this.state.selectedLanguage] } } } })
-                    } />
+                    data={
+                      this.state.selectedLanguage === "Overall"
+                        ? this.state.data
+                        : this.state.data
+                            .filter(d =>
+                              d["ranks"]["languages"].hasOwnProperty(
+                                this.state.selectedLanguage
+                              )
+                            )
+                            .map(m => {
+                              return {
+                                ...m,
+                                ranks: {
+                                  overall: {
+                                    ...m.ranks.languages[
+                                      this.state.selectedLanguage
+                                    ]
+                                  }
+                                }
+                              };
+                            })
+                    }
+                  />
                 </Col>
               </Row>
             </Col>
@@ -54,9 +87,20 @@ export default class App extends Component {
       .then(responses => responses.map(response => response.json()))
       .then(responses => {
         Promise.all(responses).then(data => {
+          data = data.filter(f => f.username);
           this.setState({
             data: _.sortBy(data, "ranks.overall.score").reverse(),
-            languages: [...new Set([this.state.languages, ...[].concat.apply([], data.map(dataItem => Object.keys(dataItem['ranks']['languages'])))])],
+            languages: [
+              ...new Set([
+                this.state.languages,
+                ...[].concat.apply(
+                  [],
+                  data.map(dataItem =>
+                    Object.keys(dataItem["ranks"]["languages"])
+                  )
+                )
+              ])
+            ],
             hasData: true
           });
         });

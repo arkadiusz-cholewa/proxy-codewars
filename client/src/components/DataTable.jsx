@@ -19,7 +19,7 @@ export default class DataTable extends React.Component {
             <th>Honor</th>
             <th>Clan</th>
             <th>Leaderboard Position</th>
-            <th>Overall</th>
+            <th>Score</th>
           </tr>
         </thead>
         <tbody>{rows}</tbody>
