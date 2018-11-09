@@ -8,7 +8,6 @@ export default function DataTableRow({ dataItem, i }) {
       <td>
         <a href={`https://www.codewars.com/users/${dataItem.username}`}>{dataItem.username}</a>
       </td>
-      <td>{dataItem.honor}</td>
       <td>{dataItem.clan}</td>
       <td>{dataItem.leaderboardPosition}</td>
       <td>

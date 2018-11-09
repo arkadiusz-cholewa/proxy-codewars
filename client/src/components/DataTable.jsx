@@ -16,7 +16,6 @@ export default class DataTable extends React.Component {
           <tr>
             <th>#</th>
             <th>Useraname</th>
-            <th>Honor</th>
             <th>Clan</th>
             <th>Leaderboard Position</th>
             <th>Score</th>

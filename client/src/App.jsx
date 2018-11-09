@@ -50,24 +50,24 @@ export default class App extends Component {
                     data={
                       this.state.selectedLanguage === "Overall"
                         ? this.state.data
-                        : this.state.data
-                            .filter(d =>
-                              d["ranks"]["languages"].hasOwnProperty(
-                                this.state.selectedLanguage
-                              )
+                        : _.sortBy(this.state.data
+                          .filter(d =>
+                            d["ranks"]["languages"].hasOwnProperty(
+                              this.state.selectedLanguage
                             )
-                            .map(m => {
-                              return {
-                                ...m,
-                                ranks: {
-                                  overall: {
-                                    ...m.ranks.languages[
-                                      this.state.selectedLanguage
-                                    ]
-                                  }
+                          ), `ranks.languages.${this.state.selectedLanguage}.score`).reverse()
+                          .map(m => {
+                            return {
+                              ...m,
+                              ranks: {
+                                overall: {
+                                  ...m.ranks.languages[
+                                  this.state.selectedLanguage
+                                  ]
                                 }
-                              };
-                            })
+                              }
+                            };
+                          })
                     }
                   />
                 </Col>
