@@ -2,23 +2,9 @@ import React, { Component } from "react";
 import DataTable from "./components/DataTable.jsx";
 import TopMenu from "./components/TopMenu.jsx";
 import _ from "lodash";
+import { nicks } from './nicks';
 import { Container, Row, Col } from "reactstrap";
 import "./App.css";
-
-const nicks = [
-  "arkadiusz-cholewa",
-  "Xanner",
-  "Arathon",
-  "SafQ",
-  "errantShaggy",
-  "Kkuba55",
-  "Chszaner",
-  "Villiamos",
-  "Wojtus",
-  "zvvvz",
-  "alberto12",
-  "rozbujnik1"
-];
 
 export default class App extends Component {
   constructor(props) {
