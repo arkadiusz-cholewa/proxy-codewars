@@ -2,9 +2,19 @@ import React, { Component } from "react";
 import DataTable from "./components/DataTable.jsx";
 import TopMenu from "./components/TopMenu.jsx";
 import _ from "lodash";
-import { nicks } from './nicks';
+import { nicks } from "./nicks";
 import { Container, Row, Col } from "reactstrap";
 import "./App.css";
+import { css } from "react-emotion";
+import PacmanLoader from "react-spinners/PacmanLoader";
+
+const override = css`
+margin: 0 auto;
+position: absolute;
+top: 50%;
+-ms-transform: translateY(-50%);
+transform: translateY(-50%);
+`;
 
 export default class App extends Component {
   constructor(props) {
@@ -18,7 +28,12 @@ export default class App extends Component {
   }
 
   render() {
-    if (!this.state.hasData) return <h1>loading...</h1>;
+    if (!this.state.hasData)
+      return (
+        <div className="App">
+          <PacmanLoader className={override} color={"white"} />
+        </div>
+      );
 
     return (
       <div className="App">
@@ -36,24 +51,29 @@ export default class App extends Component {
                     data={
                       this.state.selectedLanguage === "Overall"
                         ? this.state.data
-                        : _.sortBy(this.state.data
-                          .filter(d =>
-                            d["ranks"]["languages"].hasOwnProperty(
+                        : _.sortBy(
+                            this.state.data.filter(d =>
+                              d["ranks"]["languages"].hasOwnProperty(
+                                this.state.selectedLanguage
+                              )
+                            ),
+                            `ranks.languages.${
                               this.state.selectedLanguage
-                            )
-                          ), `ranks.languages.${this.state.selectedLanguage}.score`).reverse()
-                          .map(m => {
-                            return {
-                              ...m,
-                              ranks: {
-                                overall: {
-                                  ...m.ranks.languages[
-                                  this.state.selectedLanguage
-                                  ]
+                            }.score`
+                          )
+                            .reverse()
+                            .map(m => {
+                              return {
+                                ...m,
+                                ranks: {
+                                  overall: {
+                                    ...m.ranks.languages[
+                                      this.state.selectedLanguage
+                                    ]
+                                  }
                                 }
-                              }
-                            };
-                          })
+                              };
+                            })
                     }
                   />
                 </Col>
