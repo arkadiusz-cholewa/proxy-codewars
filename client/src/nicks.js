@@ -12,6 +12,6 @@ export const nicks = [
   'alberto12',
   'rozbujnik1',
   'jarek_lesniak',
-  'vakcinion',
-  'jacobchwastek'
+  'Vakcinion',
+  'JacobChwastek'
 ];
