@@ -30,13 +30,13 @@ export default class App extends Component {
   render() {
     if (!this.state.hasData)
       return (
-        <div className="App">
+        <div className="page loading-screen">
           <PacmanLoader className={override} color={"white"} />
         </div>
       );
 
     return (
-      <div className="App">
+      <div className="page App">
         <TopMenu
           languages={this.state.languages}
           onChange={e => this.handleLanguageChanged(e)}

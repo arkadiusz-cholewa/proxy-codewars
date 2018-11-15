@@ -1,6 +1,12 @@
 .App {
-  /* text-align: center; */
+  min-height: 100vh;
+}
+
+.loading-screen {
+  height: 100vh;
+}
+
+.page {
   background-color: #282c34;
   color: white;
-  height: 100vh;
 }
