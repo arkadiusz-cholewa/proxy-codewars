@@ -13,5 +13,10 @@ export const nicks = [
   'rozbujnik1',
   'jarek_lesniak',
   'Vakcinion',
-  'JacobChwastek'
+  'JacobChwastek',
+  'sebastian_armata',
+  'JacekB',
+  'MattKoboski',
+  'ŁysyPK',
+  'rozek1szymon'
 ];
